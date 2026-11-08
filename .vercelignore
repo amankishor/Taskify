@@ -1,0 +1,12 @@
+.env
+.env.local
+.env.*.local
+data/
+node_modules/
+.agents/
+.taste-skill/
+.impeccable/
+tests/
+test-results/
+playwright-report/
+.git/

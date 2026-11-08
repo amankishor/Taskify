@@ -1,0 +1,54 @@
+{
+  "name": "notesnexa-local",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "vite --host 127.0.0.1",
+    "test": "node --test",
+    "build": "node scripts/build.js",
+    "dev:server": "node --watch server/index.js",
+    "test:browser": "node scripts/browser-check.js",
+    "test:mongo": "node scripts/mongo-check.js",
+    "migrate:mongo": "node scripts/migrate-mongo.js",
+    "test:surfaces": "node scripts/surfaces-browser-check.js"
+  },
+  "dependencies": {
+    "@base-ui/react": "^1.9.0",
+    "@tiptap/extension-image": "^3.33.0",
+    "@tiptap/extension-placeholder": "^3.33.0",
+    "@tiptap/extension-table": "^3.33.0",
+    "@tiptap/markdown": "^3.33.0",
+    "@tiptap/react": "^3.33.0",
+    "@tiptap/starter-kit": "^3.33.0",
+    "bcryptjs": "^3.0.2",
+    "cloudinary": "^2.11.0",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.2.1",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "lucide-react": "^1.70.0",
+    "mongodb": "^7.8.0",
+    "motion": "^14.10.1",
+    "nodemailer": "^10.4.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-markdown": "^10.1.0",
+    "react-router-dom": "^7.18.5",
+    "remark-gfm": "^4.0.1",
+    "sonner": "^2.0.8",
+    "three": "^0.187.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.0",
+    "@vitejs/plugin-react": "^6.2.1",
+    "mongodb-memory-server": "^11.3.0",
+    "sharp": "^0.35.5",
+    "vite": "^8.3.6"
+  },
+  "engines": {
+    "node": "22.x"
+  }
+}

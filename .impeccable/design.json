@@ -1,0 +1,221 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-08T14:26:11.072917+00:00",
+  "title": "Design System: NotesNexa",
+  "extensions": {
+    "colorMeta": {
+      "orange": {
+        "role": "primary",
+        "displayName": "Burnt Orange"
+      },
+      "orange-light": {
+        "role": "primary",
+        "displayName": "Pale Terracotta"
+      },
+      "cream": {
+        "role": "neutral",
+        "displayName": "Cream"
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper"
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Warm Surface"
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink"
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted Ink"
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Paper Edge"
+      },
+      "dark": {
+        "role": "neutral",
+        "displayName": "Deep Ink"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Auth display",
+        "purpose": "Story heading; responsive explicit sizes override its clamp."
+      },
+      "headline": {
+        "displayName": "Workspace headline",
+        "purpose": "Collection introduction."
+      },
+      "title": {
+        "displayName": "Editable title",
+        "purpose": "Autosized wrapping editor textarea."
+      },
+      "body": {
+        "displayName": "Working copy",
+        "purpose": "Editor text; preview line height is 1.9."
+      },
+      "label": {
+        "displayName": "Form label",
+        "purpose": "Sentence-case form labels."
+      }
+    },
+    "themeOverrides": {
+      "dark": {
+        "selector": ":root[data-theme=dark]",
+        "colors": {
+          "cream": "#252722",
+          "paper": "#2d2f29",
+          "surface": "#33352e",
+          "ink": "#f1ecdf",
+          "muted": "#b5b2a6",
+          "line": "#45473d",
+          "orange": "#ff9b70",
+          "orange-light": "#44362c"
+        }
+      }
+    },
+    "shadows": [
+      {
+        "name": "card-hover",
+        "value": "0 8px 22px #29261509",
+        "purpose": "Fine-pointer note-card hover."
+      },
+      {
+        "name": "dialog",
+        "value": "0 22px 70px #10150b33",
+        "purpose": "Modal overlay depth."
+      },
+      {
+        "name": "mobile-navigation",
+        "value": "15px 0 60px #13190e20",
+        "purpose": "Mobile drawer."
+      },
+      {
+        "name": "field-focus",
+        "value": "0 0 0 3px var(--orange-light)",
+        "purpose": "Auth input focus, with orange border."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(.23,1,.32,1)",
+        "purpose": "Transform, opening and overlay easing."
+      },
+      {
+        "name": "ui-state",
+        "value": "150ms ease",
+        "purpose": "Background, color and border responses."
+      },
+      {
+        "name": "icon-press",
+        "value": "120ms var(--ease-out)",
+        "purpose": "Scale to .97 on press."
+      },
+      {
+        "name": "card-hover",
+        "value": "180ms var(--ease-out)",
+        "purpose": "Translate up 2px and change shadow."
+      },
+      {
+        "name": "dialog",
+        "value": "200ms var(--ease-out)",
+        "purpose": "Opacity and scale .97; backdrop is 180ms."
+      },
+      {
+        "name": "drawer",
+        "value": "240ms var(--ease-out)",
+        "purpose": "Translate mobile navigation."
+      },
+      {
+        "name": "opening",
+        "value": "600ms / 700ms var(--ease-out)",
+        "purpose": "Auth form / story opening, translateY 12px to 0; delays 140ms / 80ms for supporting copy."
+      },
+      {
+        "name": "reduced-motion",
+        "value": ".01ms transitions; animation:none",
+        "purpose": "Global reduced-motion preference. Three.js keeps a static frame."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "wide-min",
+        "value": "1600px"
+      },
+      {
+        "name": "compact-max",
+        "value": "1200px"
+      },
+      {
+        "name": "editor-single-max",
+        "value": "950px"
+      },
+      {
+        "name": "mobile-max",
+        "value": "700px"
+      },
+      {
+        "name": "narrow-max",
+        "value": "450px"
+      },
+      {
+        "name": "small-max",
+        "value": "350px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Ink action with orange fine-pointer hover and a small press response.",
+      "html": "<button class=\"ds-button\">Open your workspace</button>",
+      "css": ".ds-button{display:inline-flex;align-items:center;justify-content:center;min-height:47px;padding:0 22px;border:1px solid var(--ink);border-radius:7px;background:var(--ink);color:var(--paper);font:500 14px var(--sans);cursor:pointer;transition:background-color 150ms ease,transform 150ms var(--ease-out),border-color 150ms ease}.ds-button:focus-visible{outline:2px solid var(--orange);outline-offset:4px}.ds-button:active{transform:scale(.97)}.ds-button:disabled{opacity:.5;cursor:not-allowed}@media(hover:hover) and (pointer:fine){.ds-button:not(:disabled):hover{transform:translateY(-1px);background:var(--orange);border-color:var(--orange);color:var(--paper)}}@media(prefers-reduced-motion:reduce){.ds-button{transition-duration:.01ms}}"
+    },
+    {
+      "name": "Auth Field",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "Transparent field with an orange focus border and halo.",
+      "html": "<label class=\"ds-field\">Email address<input class=\"ds-input\" type=\"email\" placeholder=\"you@example.com\"/></label>",
+      "css": ".ds-field{display:flex;flex-direction:column;gap:10px;font:500 12px var(--sans);color:var(--ink)}.ds-input{width:100%;min-width:0;min-height:49px;border:1px solid var(--line);border-radius:6px;background:transparent;padding:0 15px;color:var(--ink);font:13px var(--sans);caret-color:var(--orange);transition:border-color 150ms ease,box-shadow 150ms ease}.ds-input::placeholder{color:var(--muted);opacity:1}.ds-input:focus,.ds-input:focus-visible{border-color:var(--orange);box-shadow:0 0 0 3px var(--orange-light);outline:none}@media(max-width:700px){.ds-input{font-size:16px}}@media(prefers-reduced-motion:reduce){.ds-input{transition-duration:.01ms}}"
+    },
+    {
+      "name": "Note Card",
+      "kind": "card",
+      "refersTo": "note-card",
+      "description": "Paper note preview; selected state uses orange-light.",
+      "html": "<button class=\"ds-note\"><h3>A place to unfold</h3><p>Give your next thought a little room.</p></button>",
+      "css": ".ds-note{display:flex;flex-direction:column;text-align:left;min-width:0;min-height:218px;padding:21px;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);cursor:pointer;transition:transform 180ms var(--ease-out),border-color 150ms ease,box-shadow 180ms ease}.ds-note h3{margin:0 0 12px;font:400 23px/1.2 var(--serif);letter-spacing:-.3px;overflow-wrap:anywhere}.ds-note p{margin:0;font:13px/1.8 var(--sans);color:var(--muted)}.ds-note:focus-visible{outline:2px solid var(--orange);outline-offset:4px}.ds-note[aria-pressed=true]{border-color:var(--orange);background:var(--orange-light)}@media(hover:hover) and (pointer:fine){.ds-note:hover{transform:translateY(-2px);border-color:var(--muted);box-shadow:0 8px 22px #29261509}}@media(prefers-reduced-motion:reduce){.ds-note{transition-duration:.01ms}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "A Little Space",
+    "overview": "NotesNexa pairs a warm editorial opening with the density of a working notes app. Cream and paper surfaces, dark ink, burnt orange accents and expressive serif titles make personal work feel approachable. Controls stay familiar and the writing surface stays still.",
+    "keyCharacteristics": [
+      "Warm paper surfaces with restrained orange emphasis.",
+      "Serif headings and sans-serif working controls.",
+      "One dimensional opening sculpture; short responses during work.",
+      "Responsive navigation, editable titles and readable Markdown."
+    ],
+    "rules": [],
+    "dos": [
+      "Do reuse CSS custom properties so light/dark themes remain coherent.",
+      "Do reserve serif type for expressive hierarchy and keep working controls in DM Sans.",
+      "Do preserve wrapped, autosized titles, visible focus and responsive drawer behavior.",
+      "Do keep decoration independent of authentication and respect pause/reduced-motion states."
+    ],
+    "donts": [
+      "Don't add continuous motion to writing or task surfaces.",
+      "Don't replace the warm palette with unrelated accent families.",
+      "Don't introduce invented reviews, figures or ranking claims.",
+      "Don't document or expose private login credentials as interface or design content."
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+node_modules/
+.env
+.env.*
+!.env.example
+data/
+dist/
+.taste-skill/chrome*/
+.taste-skill/*profile*/
+test-results/
+.impeccable/review/
+playwright-report/
+# Local design tooling and browser profiles
+.agents/
+.taste-skill/
+.impeccable/review/
+.impeccable/questions/
+# Local environment credentials (keep only the blank setup template)
+.env
+.env.*
+!.env.example
+*.log
