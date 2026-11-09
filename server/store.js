@@ -41,7 +41,7 @@ export async function createStore(env=process.env){
  if(!connection)connection=(async()=>{
   const client=new MongoClient(env.MONGODB_URI,{maxPoolSize:10,minPoolSize:0,serverSelectionTimeoutMS:10000});await client.connect();
   const db=client.db(env.MONGODB_DB||'notesnexa');
- await Promise.all([db.collection('users').createIndex({email:1},{unique:true}),db.collection('users').createIndex({usernameKey:1},{unique:true,sparse:true}),db.collection('notes').createIndex({userId:1,updatedAt:-1}),db.collection('tasks').createIndex({userId:1,updatedAt:-1}),db.collection('events').createIndex({userId:1,remindAt:1}),db.collection('challenges').createIndex({email:1}),db.collection('reminders').createIndex({status:1,nextAttempt:1}),db.collection('rateLimits').createIndex({expireAt:1},{expireAfterSeconds:0})]);
+ await Promise.all([db.collection('users').createIndex({email:1},{unique:true}),db.collection('users').createIndex({usernameKey:1},{unique:true,sparse:true}),db.collection('notes').createIndex({userId:1,updatedAt:-1}),db.collection('tasks').createIndex({userId:1,updatedAt:-1}),db.collection('events').createIndex({userId:1,remindAt:1}),...['notes','tasks','events'].map(key=>db.collection(key).createIndex({userId:1,trashedAt:1})),db.collection('challenges').createIndex({email:1}),db.collection('reminders').createIndex({status:1,nextAttempt:1}),db.collection('rateLimits').createIndex({expireAt:1},{expireAfterSeconds:0})]);
   return new MongoStore(db,client);
  })().catch(err=>{connection=undefined;throw err;});
  return connection;

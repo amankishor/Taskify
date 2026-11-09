@@ -55,6 +55,12 @@ test('full account, ownership, notes, tasks and PWA flow',async()=>{
  const moved=await api('/api/reminders/'+reminder._id,'PATCH',{completed:true},token);assert.ok(Date.parse(moved.body.data.remindAt)>Date.parse(reminder.remindAt));assert.equal(moved.body.data.completedAt,null);
  assert.equal((await api('/api/reminders/'+reminder._id,'PATCH',{repeat:'none',completed:true},token)).body.data.completedAt!==null,true);
  assert.equal((await api('/api/reminders/'+reminder._id,'PATCH',{notifyEmail:'yes'},token)).status,400);
+ const kept=(await api('/api/reminders','POST',{title:'Keep this reminder',remindAt:new Date(Date.now()+86400000).toISOString(),groupId:group._id,notifyEmail:false},token)).body.data;
+ assert.equal((await api('/api/groups/'+group._id,'DELETE',{},other)).status,404);
+ assert.equal((await api('/api/groups/others','DELETE',{},token)).status,400);
+ const removedGroup=await api('/api/groups/'+group._id,'DELETE',{},token);assert.equal(removedGroup.status,200);assert.equal(removedGroup.body.moved.notes,1);assert.equal(removedGroup.body.moved.tasks,1);
+ assert.ok((await api('/api/home/'+note._id,'GET',undefined,token)).body.data.trashedAt);assert.ok((await api('/api/task/'+task._id,'GET',undefined,token)).body.data.trashedAt);assert.ok((await api('/api/reminders','GET',undefined,token)).body.data.find(r=>r._id===kept._id).trashedAt);assert.ok(!(await api('/api/groups','GET',undefined,token)).body.data.some(g=>g._id===group._id));assert.equal((await api('/api/home','POST',{groupId:group._id},token)).status,404);
+ assert.equal((await api('/api/trash/note/'+note._id+'/restore','POST',{},other)).status,404);assert.equal((await api('/api/trash/note/'+note._id+'/restore','POST',{},token)).body.data.groupId,group._id);assert.equal((await api('/api/groups/'+group._id+'/restore','POST',{},token)).status,200);assert.equal((await api('/api/task/'+task._id,'GET',undefined,token)).body.data.trashedAt,null);
  assert.equal((await api('/api/reminders/'+reminder._id,'DELETE',{},token)).status,200);
  assert.equal((await api('/api/home/'+note._id,'DELETE',{},token)).status,200);
  assert.equal((await api('/api/home/'+note._id,'GET',undefined,token)).status,404);

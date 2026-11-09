@@ -228,3 +228,8 @@ Two original hero images were made with the built-in image generation tool and o
 
 ## Explicit save and contextual reminders
 Note and task-list editors expose a warm Save & back action that waits for title and content/task writes before returning to the collection. Failures retain the editor and draft. Reminder prompts appear below written content/tasks and open the date/time dialog. Native select popup options explicitly use the current theme colors; dark mode uses a dark color-scheme and light option text.
+
+## Group deletion and 30-day Trash
+The latest user instruction supersedes moving group content to Others. Deleting a group moves its active notes (including attached-image links), task lists and reminders into 30-day Trash. The default Others group is protected. Trash lists all item types and deleted groups, exposes individual/group restore, shows days remaining and confirms permanent deletion. Notes already in Trash retain their earlier expiry. Restoring an individual item also restores its original group metadata without restoring the other deleted items.
+
+Note reminder actions now sit in the title area at top right with the warm orange highlight. Task due date/time is automatically its reminder schedule; completing it before due time suppresses email.
