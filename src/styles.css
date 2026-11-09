@@ -126,3 +126,13 @@
 @media(max-width:380px){.reference-note-grid{grid-template-columns:1fr}.notes-quick-actions>button{gap:7px;padding:12px 8px}.notes-quick-actions>button>span{width:26px;height:26px}.notes-quick-actions small{font-size:9px}.notes-quick-actions strong{font-size:11px}.surface-collection-toolbar>div{width:100%;justify-content:space-between}.compact-group-filter select{max-width:180px}.task-main-tabs>div{gap:12px}.task-main-tabs>div>button>svg{display:none}.reminder-tabs>button{padding:9px 6px;gap:4px;font-size:9px}.reminder-tabs>button svg{width:12px}.surface-form-row{gap:8px}.surface-hero>div{width:90%}}
 
 .kanban-card-heading>button{font-size:13px}.kanban-column h2{font-size:13px}.kanban-card-footer>span{font-size:10px}.reference-note-heading h2{font-size:14px}
+
+/* Native popup menus need explicit option colors on Windows and in dark mode. */
+select{color-scheme:light;background-color:var(--paper);color:var(--ink)}
+select option,select optgroup{background-color:var(--paper);color:var(--ink)}
+:root[data-theme=dark] select{color-scheme:dark}
+:root[data-theme=dark] select option,:root[data-theme=dark] select optgroup{background-color:#2d2f29;color:#f1ecdf}
+.editor-actions .editor-save-button{display:inline-flex;align-items:center;gap:6px;min-height:34px;padding:0 12px;font-size:12px;white-space:nowrap;flex-shrink:0}
+@media(max-width:700px){.editor-header{flex-wrap:wrap;row-gap:9px}.editor-actions{margin-left:auto}.editor-actions .editor-save-button{min-height:36px;padding-inline:10px;font-size:11px}.note-editor .save-status{display:none}}
+
+.editor-reminder-prompt{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 25px;border-top:1px solid var(--line);background:var(--paper)}.editor-reminder-prompt>div{display:flex;align-items:center;gap:9px;font-size:12px;color:var(--muted)}.editor-reminder-prompt>div>svg{color:var(--orange)}.editor-reminder-prompt .button{min-height:35px;padding:0 12px;font-size:11px;white-space:nowrap}@media(max-width:450px){.editor-reminder-prompt{align-items:flex-start;flex-direction:column;gap:12px;padding:17px}.editor-reminder-prompt .button{align-self:flex-end}}
